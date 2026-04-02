@@ -1,8 +1,8 @@
 const pillars = [
-  { icon: '🤝', title: 'Distribuição', desc: 'Rede global UNICEF para alcançar comunidades remotas em 11 países de alta carga' },
-  { icon: '📊', title: 'Monitorização', desc: 'Sistemas UNICEF de reporting e avaliação de impacto alinhados com ODS 3' },
-  { icon: '💰', title: 'Financiamento', desc: 'Acesso a fundos multilaterais (Gavi, GFATM, PMI) através da rede UNICEF' },
-  { icon: '🔬', title: 'Validação científica', desc: 'Endorsement de organismos internacionais — chave para aprovação regulatória em escala' },
+  { icon: '🔬', title: 'Co-investigação clínica', desc: 'Protocolo conjunto fase I/II com supervisão UNICEF/OMS — rigor científico e independência garantidos' },
+  { icon: '💰', title: 'Co-financiamento de ensaios', desc: 'Acesso a fundos de investigação (Gavi, GFATM, PMI) para conduzir os ensaios clínicos necessários' },
+  { icon: '📊', title: 'Recolha e análise de dados', desc: 'Sistemas UNICEF de monitorização para recolha robusta de dados clínicos em contexto africano' },
+  { icon: '🏛️', title: 'Credibilidade regulatória', desc: 'O envolvimento UNICEF reforça a credibilidade junto de SRAs e acelera o processo WHO Prequalification' },
 ]
 
 export default function Slide12Partnership() {
@@ -15,7 +15,7 @@ export default function Slide12Partnership() {
             All Shanti <span className="text-pink">+</span> UNICEF
           </h2>
           <p className="text-lg text-blue-100">
-            Juntos pelos Objectivos de Desenvolvimento Sustentável
+            Uma parceria de investigação para determinar o potencial clínico do All Shanti
           </p>
           <div className="w-16 h-1 bg-pink mx-auto mt-4 rounded-full" />
         </div>
@@ -36,7 +36,7 @@ export default function Slide12Partnership() {
 
         <div className="mt-8 text-center">
           <p className="text-white/80 text-sm">
-            Objectivo: <span className="font-bold text-white">Reduzir significativamente a mortalidade por malária em crianças até 2030</span>
+            Objectivo: <span className="font-bold text-white">Determinar, com rigor científico, o potencial do All Shanti como ferramenta antimalárica — e, se validado, levá-lo a quem mais precisa</span>
           </p>
         </div>
       </div>

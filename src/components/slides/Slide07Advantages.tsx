@@ -1,33 +1,33 @@
 const advantages = [
   {
-    icon: '🔬',
-    title: 'Eficácia comprovada',
-    desc: 'Resultados validados em testes clínicos com populações afectadas',
+    icon: '📜',
+    title: 'Evidência histórica documentada',
+    desc: 'A Cinchona calisaya tem uso antimalárico documentado desde o século XVII — base para protocolo de investigação',
   },
   {
     icon: '💡',
-    title: 'Formulação inovadora',
-    desc: 'Combinação única de ingredientes naturais em água mineral de São Silvestre',
+    title: 'Formulação singular',
+    desc: 'Combinação única de ingredientes naturais em água mineral de São Silvestre — a investigar em ensaios controlados',
   },
   {
-    icon: '👶',
-    title: 'Para populações vulneráveis',
-    desc: 'Adequado para crianças menores de 5 anos — grupo mais afectado',
+    icon: '🔍',
+    title: 'Perfil de segurança a determinar',
+    desc: 'Testes de segurança e tolerância — incluindo populações pediátricas — a realizar no âmbito do programa clínico',
   },
   {
     icon: '🚀',
-    title: 'Escalabilidade',
-    desc: 'Produção escalável para implementação em larga escala em contexto africano',
+    title: 'Potencial de escalabilidade',
+    desc: 'Se validado clinicamente, produção escalável para contexto africano de alta carga',
   },
   {
     icon: '🚛',
     title: 'Sem cadeia de frio',
-    desc: 'Distribuição simplificada — não requer transporte ou armazenamento refrigerado',
+    desc: 'Distribuição simplificada — vantagem logística relevante para regiões remotas, sujeita a validação operacional',
   },
   {
     icon: '📄',
-    title: 'Base científica',
-    desc: 'Objecto de estudos e publicações científicas sobre as suas potencialidades',
+    title: 'Revisão bibliográfica em curso',
+    desc: 'Literatura sobre alcalóides quinínicos como fundamento do protocolo de ensaios fase I/II',
   },
 ]
 

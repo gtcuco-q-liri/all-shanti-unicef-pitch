@@ -11,13 +11,13 @@ export default function Slide06Solution() {
 
         <h2 className="text-5xl font-black mb-6 leading-tight">
           All Shanti
-          <span className="block text-2xl font-light mt-2 text-pink-100">Uma Solução Comprovada</span>
+          <span className="block text-2xl font-light mt-2 text-pink-100">Uma Candidatura à Investigação Clínica</span>
         </h2>
 
         <p className="text-xl text-white/90 leading-relaxed mb-10">
-          Suplemento alimentar inovador desenvolvido pela{' '}
-          <span className="font-bold text-white">Águas de São Silvestre, SA</span>, com eficácia
-          comprovada no combate à malária.
+          Suplemento alimentar desenvolvido pela{' '}
+          <span className="font-bold text-white">Águas de São Silvestre, SA</span>, com base em
+          evidência histórica da <em>Cinchona calisaya</em> — proposto para investigação clínica formal em parceria internacional.
         </p>
 
         <div className="grid grid-cols-3 gap-4 text-center">
