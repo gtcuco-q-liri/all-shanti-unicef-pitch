@@ -1,7 +1,7 @@
 const stats = [
   { value: '282M', label: 'casos globais em 2024', color: 'text-unicef' },
   { value: '610K', label: 'mortes registadas em 2024', color: 'text-pink' },
-  { value: '94%', label: 'dos casos mundiais ocorrem em África', color: 'text-navy' },
+  { value: '95%', label: 'dos casos mundiais ocorrem em África', color: 'text-navy' },
   { value: '75%', label: 'das vítimas mortais são crianças < 5 anos', color: 'text-pink' },
 ]
 
