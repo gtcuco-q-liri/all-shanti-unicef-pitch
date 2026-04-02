@@ -2,25 +2,25 @@ const alignments = [
   {
     priority: 'Proteção infantil',
     desc: '75% das vítimas mortais africanas são crianças < 5 anos (WHO 2025)',
-    match: 'All Shanti é adequado para crianças, formulação segura',
+    match: 'Perfil de segurança pediátrica a estabelecer — incluso no protocolo fase I/II',
     icon: '👶',
   },
   {
     priority: 'Redução da mortalidade',
     desc: 'Reduzir mortalidade infantil na África Subsaariana — ODS 3',
-    match: 'Impacto directo: >1M crianças protegidas até 2030',
+    match: 'Se validado clinicamente: potencial de escala às populações mais afectadas',
     icon: '📉',
   },
   {
     priority: 'Equidade no acesso',
     desc: '43% da população sem proteção adequada — foco em comunidades remotas',
-    match: 'Distribuição de água sem cadeia de frio alcança contextos remotos',
+    match: 'Vantagem logística a confirmar: formulação aquosa sem cadeia de frio',
     icon: '⚖️',
   },
   {
     priority: 'Resposta à resistência',
     desc: 'Resistência à artemisina confirmada em 8 países africanos — necessidade urgente de alternativas',
-    match: 'Formulação natural diferenciada — mecanismo de acção complementar',
+    match: 'Alcalóides quinínicos da Cinchona: mecanismo de acção distinto da artemisina (documentado)',
     icon: '🧬',
   },
 ]
