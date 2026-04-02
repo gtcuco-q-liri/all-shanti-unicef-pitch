@@ -2,7 +2,7 @@ const steps = [
   {
     num: '01',
     title: 'Reunião técnica',
-    desc: 'Apresentação detalhada dos estudos de eficácia e segurança ao departamento de saúde da UNICEF',
+    desc: 'Apresentação da revisão bibliográfica e plano de investigação clínica ao departamento de saúde da UNICEF',
     deadline: 'Abril 2026',
     color: '#009EDB',
   },

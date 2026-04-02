@@ -23,9 +23,9 @@ export default function Slide09Strategy() {
   return (
     <div className="flex flex-col h-full w-full bg-white">
       <div className="bg-unicef px-12 py-8">
-        <p className="text-xs text-blue-100 uppercase tracking-widest mb-1 font-medium">Implementação</p>
-        <h2 className="text-3xl font-bold text-white">Estratégia de Implementação</h2>
-        <p className="text-blue-100 text-sm mt-1">Piloto em 3 países seleccionados por impacto, capacidade regulatória e presença UNICEF</p>
+        <p className="text-xs text-blue-100 uppercase tracking-widest mb-1 font-medium">Investigação</p>
+        <h2 className="text-3xl font-bold text-white">Países Piloto para Investigação Clínica</h2>
+        <p className="text-blue-100 text-sm mt-1">3 países seleccionados por carga de malária, capacidade regulatória e presença UNICEF</p>
       </div>
 
       <div className="flex-1 flex flex-col justify-center px-12 py-8 gap-5">
@@ -43,9 +43,9 @@ export default function Slide09Strategy() {
 
         <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 mt-2">
           <p className="text-sm text-dark font-medium">
-            Parcerias com sistemas de saúde locais, ONGs e UNICEF &bull;
-            Programa de sensibilização comunitária &bull;
-            Escalabilidade para os 11 países com maiores casos
+            Centros clínicos parceiros em cada país &bull;
+            Comités de ética locais e supervisão OMS/UNICEF &bull;
+            Plataforma de dados para recolha e análise clínica
           </p>
         </div>
       </div>

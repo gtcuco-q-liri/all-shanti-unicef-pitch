@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Maximize, Minimize } from 'lucide-react'
 import Slide01Cover from './components/slides/Slide01Cover'
 import Slide02Crisis from './components/slides/Slide02Crisis'
@@ -7,6 +7,7 @@ import Slide04Economic from './components/slides/Slide04Economic'
 import Slide05Treatment from './components/slides/Slide05Treatment'
 import Slide06Solution from './components/slides/Slide06Solution'
 import Slide07Advantages from './components/slides/Slide07Advantages'
+import SlideScience from './components/slides/SlideScience'
 import Slide08Alignment from './components/slides/Slide08Alignment'
 import Slide09Strategy from './components/slides/Slide09Strategy'
 import Slide10Timeline from './components/slides/Slide10Timeline'
@@ -23,6 +24,7 @@ const slides = [
   { component: Slide05Treatment, title: 'Tratamentos Atuais' },
   { component: Slide06Solution, title: 'A Solução' },
   { component: Slide07Advantages, title: 'Vantagens' },
+  { component: SlideScience, title: 'Base Científica' },
   { component: Slide08Alignment, title: 'Alinhamento UNICEF' },
   { component: Slide09Strategy, title: 'Estratégia' },
   { component: Slide10Timeline, title: 'Timeline' },
@@ -36,6 +38,7 @@ export default function App() {
   const [current, setCurrent] = useState(0)
   const [key, setKey] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const touchStartX = useRef<number | null>(null)
 
   const goTo = useCallback((index: number) => {
     const next = Math.max(0, Math.min(slides.length - 1, index))
@@ -80,10 +83,23 @@ export default function App() {
 
   const SlideComponent = slides[current].component
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const delta = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(delta) > 50) {
+      delta > 0 ? next() : prev()
+    }
+    touchStartX.current = null
+  }
+
   return (
     <div className="flex flex-col h-screen w-screen bg-black select-none">
       {/* Slide area — 16:9 centered */}
-      <div className="flex-1 flex items-center justify-center overflow-hidden">
+      <div className="flex-1 flex items-center justify-center overflow-hidden relative">
         <div
           className="relative shadow-2xl overflow-hidden"
           style={{
@@ -92,10 +108,32 @@ export default function App() {
             maxWidth: 'calc(100vh * 16/9)',
             maxHeight: 'calc(100vw * 9/16)',
           }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <div key={key} className="w-full h-full slide-enter">
             <SlideComponent />
           </div>
+
+          {/* Mobile overlay arrows */}
+          {current > 0 && (
+            <button
+              onClick={prev}
+              className="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm transition-all"
+              aria-label="Slide anterior"
+            >
+              <ChevronLeft size={22} />
+            </button>
+          )}
+          {current < slides.length - 1 && (
+            <button
+              onClick={next}
+              className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm transition-all"
+              aria-label="Próximo slide"
+            >
+              <ChevronRight size={22} />
+            </button>
+          )}
         </div>
       </div>
 

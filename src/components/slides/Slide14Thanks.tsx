@@ -14,7 +14,7 @@ export default function Slide14Thanks() {
 
         <h2 className="text-5xl font-black mb-4">Obrigado</h2>
         <p className="text-lg text-blue-100 mb-2 font-light">
-          All Shanti — Uma solução para salvar vidas
+          All Shanti — Em investigação para combater a malária
         </p>
         <p className="text-base text-blue-200 mb-10">Águas de São Silvestre, SA</p>
 
