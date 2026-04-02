@@ -45,6 +45,9 @@ A UNICEF só faz procurement de produtos antimaláricos com WHO Prequalification
 | 2026-03-31 | Não apresentar como "solução pronta" | Risco regulatório e reputacional crítico |
 | 2026-03-31 | Aguardar respostas da Águas de São Silvestre antes de reescrever deck | 6 questões críticas pendentes |
 | 2026-03-31 | Reframing: pitch de investigação clínica | Único caminho compliance com UNICEF |
+| 2026-04-02 | Reescrita avançada sem aguardar Águas de São Silvestre | Avançar com o que é cientificamente defensável; questões pendentes refinam o dossier regulatório |
+| 2026-04-02 | Slide de Base Científica adicionado ao deck | Robustez perante auditores UNICEF; fontes PMC verificadas para Cinchona e Pau d'Arco |
+| 2026-04-02 | Projecções GDP removidas (slide 04) | US$83M/US$231M não verificáveis em fontes primárias RBM ou WHO |
 
 ---
 

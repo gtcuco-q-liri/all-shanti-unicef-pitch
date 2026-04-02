@@ -1,6 +1,6 @@
 # Roadmap & Tasks — All Shanti UNICEF Pitch
 
-_Last updated: 2026-03-31_
+_Last updated: 2026-04-02_
 
 ---
 
@@ -15,34 +15,35 @@ _Last updated: 2026-03-31_
 - [x] Investigação de compliance regulatório (WHO prequalification, NAFDAC, NDA Uganda)
 - [x] Análise multi-LLM de viabilidade da parceria UNICEF
 - [x] Identificação de 6 questões críticas pendentes + plano de reescrita liability-minimized
+- [x] Reescrita completa com linguagem liability-minimized (PR #3) — slides 6, 7, 10, 11, 12
+- [x] Novo slide "Base Científica" com referências peer-reviewed PMC/PubMed (PR #4)
+- [x] Correcção de expressões exageradas em slides 01, 08, 09, 13, 14 (PR #4)
+- [x] Navegação mobile: setas overlay + swipe touch (PR #4)
+- [x] Remover contactos fictícios do slide de encerramento (PR #5)
+- [x] Verificação e correcção de todas as fontes estatísticas (PRs #3–#6)
+  - Slide 02: 94% → 95% Africa burden (WHO 2025 confirmado)
+  - Slide 04: substituir projecções GDP não verificadas por dados RBM/WHO 2024 reais
 
 ---
 
 ## Pendente — Aguarda resposta da Águas de São Silvestre
 
-> **Bloqueado por:** respostas às 6 questões críticas
+> **Parcialmente desbloqueado:** deck reescrito com framing de investigação. As questões abaixo são necessárias para afinar o dossier regulatório.
 
 - [ ] Confirmar se existem ensaios clínicos publicados do All Shanti
 - [ ] Decisão estratégica: suplemento vs. medicamento herbal
 - [ ] Documentar resultados Angola formalmente
 - [ ] Confirmar padronização da concentração de quinina no produto
 - [ ] Confirmar existência (ou ausência) de testes de segurança pediátrica
-- [ ] Definir objectivo real da reunião UNICEF: investigação ou distribuição
+- [ ] Adicionar contactos reais da Águas de São Silvestre ao slide de encerramento
 
 ---
 
-## Backlog — Após respostas recebidas
+## Backlog
 
-- [ ] Reescrever deck com linguagem liability-minimized (plano documentado na sessão)
-  - Remover "eficácia comprovada" → evidência histórica da Cinchona
-  - Remover claims pediátricos sem base
-  - Reframing: pitch de investigação, não de distribuição
-  - Slide 10: nova timeline com fases regulatórias reais
-  - Slide 11: substituir projeções absolutas por marcos científicos
-  - Slide 12: parceria de investigação clínica, não procurement
 - [ ] Tornar repo privado (pago) ou migrar hosting para Netlify (gratuito)
 - [ ] Versão EN do deck (para reuniões UNICEF internacionais)
-- [ ] Adicionar slide de Q&A / Apêndice com dossier regulatório
+- [ ] Slide de Q&A / Apêndice com dossier regulatório completo
 
 ---
 
@@ -52,5 +53,7 @@ _Last updated: 2026-03-31_
 |---|---|---|
 | 2026-03-31 | Repo em `gtcuco-q-liri` | Projecto no âmbito iCON/Q-LIRI |
 | 2026-03-31 | Deploy via GitHub Pages | Gratuito, imediato, link partilhável |
-| 2026-03-31 | Não implementar reescrita ainda | Aguardar avaliação da Águas de São Silvestre |
 | 2026-03-31 | Framing como pitch de investigação | Único ângulo compliance com UNICEF nesta fase do produto |
+| 2026-04-02 | Reescrita avançada sem aguardar respostas | Decisão do Gustavo: avançar com o que é defensável cientificamente |
+| 2026-04-02 | Slide de Base Científica adicionado | Robustez perante auditores UNICEF — fontes PMC verificadas |
+| 2026-04-02 | Projecções GDP removidas (slide 04) | Valores US$83M/US$231M não verificáveis em fontes primárias |
