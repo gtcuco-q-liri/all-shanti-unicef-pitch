@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
 const metrics = [
-  { value: '50K+', label: 'Crianças protegidas', sub: 'Ano 1 (2027)', color: 'text-unicef', bg: 'bg-blue-50 border-blue-100' },
-  { value: '500K+', label: 'Crianças protegidas', sub: 'Ano 3 (2029)', color: 'text-pink', bg: 'bg-pink-50 border-pink-100' },
-  { value: '1M+', label: 'Crianças protegidas', sub: 'Até 2030', color: 'text-navy', bg: 'bg-indigo-50 border-indigo-100' },
+  { value: 'Fase I', label: 'Dados de segurança e tolerância', sub: '2027 — adultos, coorte inicial', color: 'text-unicef', bg: 'bg-blue-50 border-blue-100' },
+  { value: 'Fase II', label: 'Dados de eficácia controlada', sub: '2028 — sujeito a fase I aprovada', color: 'text-pink', bg: 'bg-pink-50 border-pink-100' },
+  { value: 'Reg.', label: 'Avaliação regulatória WHO', sub: '2029–2030 — se resultados positivos', color: 'text-navy', bg: 'bg-indigo-50 border-indigo-100' },
 ]
 
 export default function Slide11Impact() {
@@ -18,7 +18,7 @@ export default function Slide11Impact() {
     <div className="flex flex-col h-full w-full bg-white">
       <div className="bg-gradient-to-r from-pink to-navy px-12 py-8">
         <p className="text-xs text-pink-100 uppercase tracking-widest mb-1 font-medium">Resultados</p>
-        <h2 className="text-3xl font-bold text-white">Projeções de Impacto</h2>
+        <h2 className="text-3xl font-bold text-white">Marcos Científicos e Regulatórios</h2>
       </div>
 
       <div className="flex-1 flex flex-col justify-center px-12 py-8">
@@ -38,7 +38,7 @@ export default function Slide11Impact() {
 
         {/* Progress bar visual */}
         <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-          <p className="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-4">Trajectória de crescimento</p>
+          <p className="text-xs uppercase tracking-wide text-gray-500 font-semibold mb-4">Fases de investigação — decisões condicionadas a dados</p>
           <div className="flex items-end gap-2 h-16">
             {[5, 20, 50, 100].map((h, i) => (
               <div
