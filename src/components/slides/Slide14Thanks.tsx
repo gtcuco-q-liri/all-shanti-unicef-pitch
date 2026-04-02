@@ -21,22 +21,8 @@ export default function Slide14Thanks() {
         <div className="w-16 h-1 bg-pink mx-auto mb-8 rounded-full" />
 
         <div className="flex flex-col items-center gap-3 text-sm text-blue-200">
-          <a
-            href="mailto:contact@allshanti.com"
-            className="flex items-center gap-2 hover:text-white transition-colors"
-          >
-            <span>✉</span>
-            <span>contact@allshanti.com</span>
-          </a>
-          <a
-            href="https://allshanti.pt"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 hover:text-white transition-colors"
-          >
-            <span>🌐</span>
-            <span>allshanti.pt</span>
-          </a>
+          <p className="text-blue-300 text-sm">Águas de São Silvestre, SA</p>
+          <p className="text-blue-400 text-xs">Pernes, Santarém — Portugal</p>
         </div>
 
         <div className="mt-12">
