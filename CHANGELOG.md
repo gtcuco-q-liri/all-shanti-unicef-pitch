@@ -2,6 +2,16 @@
 
 ---
 
+## [2026-04-07] — Integração de notas de revisão do colega (PR #9)
+
+### Alterado
+- Slide 01 (Cover): título actualizado para "Proposta de Investigação Clínica no Contexto de Tratamento de Suporte Contra a Malária"
+- Slide 02 (Crise): contexto epidemiológico — parasitas Plasmodium, vector Anopheles, espécies P. falciparum/vivax, distribuição geográfica (~94% África)
+- Slide 03 (Países): callout vulnerabilidade infantil (78% mortes são crianças <5, UNICEF 2025), vacinas RTS,S e R21 em rollout em 20+ países africanos
+- Slide 04 (Económico): card impacto social — ~608K mortes anuais, 17,8M grávidas assistidas, meta erradicação 2050 (Lancet Commission, Global Fund Results Report 2025)
+
+---
+
 ## [2026-04-02] — Liability-minimized rewrite + verificação de fontes (PRs #3–#6)
 
 ### Reescrita (PR #3)

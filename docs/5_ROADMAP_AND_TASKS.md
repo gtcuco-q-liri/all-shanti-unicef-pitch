@@ -1,6 +1,6 @@
 # Roadmap & Tasks — All Shanti UNICEF Pitch
 
-_Last updated: 2026-04-02_
+_Last updated: 2026-04-07_
 
 ---
 
@@ -23,6 +23,11 @@ _Last updated: 2026-04-02_
 - [x] Verificação e correcção de todas as fontes estatísticas (PRs #3–#6)
   - Slide 02: 94% → 95% Africa burden (WHO 2025 confirmado)
   - Slide 04: substituir projecções GDP não verificadas por dados RBM/WHO 2024 reais
+- [x] Integrar notas de revisão do colega nos slides 01–04 (PR #9)
+  - Slide 01: título actualizado para "tratamento de suporte" (posicionamento regulatório)
+  - Slide 02: contexto epidemiológico (Plasmodium, Anopheles, distribuição geográfica)
+  - Slide 03: vulnerabilidade infantil 78% (UNICEF), vacinas RTS,S/R21 em 20+ países
+  - Slide 04: impacto social — ~608K mortes, 17,8M grávidas, meta 2050 (Lancet Commission)
 
 ---
 
@@ -57,3 +62,4 @@ _Last updated: 2026-04-02_
 | 2026-04-02 | Reescrita avançada sem aguardar respostas | Decisão do Gustavo: avançar com o que é defensável cientificamente |
 | 2026-04-02 | Slide de Base Científica adicionado | Robustez perante auditores UNICEF — fontes PMC verificadas |
 | 2026-04-02 | Projecções GDP removidas (slide 04) | Valores US$83M/US$231M não verificáveis em fontes primárias |
+| 2026-04-07 | Integração notas colega (slides 01–04) | Revisão externa enriquece slides com dados UNICEF, vacinas e Lancet Commission |
