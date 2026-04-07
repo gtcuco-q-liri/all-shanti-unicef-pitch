@@ -32,6 +32,25 @@ export default function Slide04Economic() {
           </div>
         </div>
 
+        {/* Social impact row */}
+        <div className="bg-amber-50 border border-amber-100 rounded-2xl p-6">
+          <p className="text-xs uppercase tracking-widest text-amber-600 font-semibold mb-3">Impacto Social</p>
+          <div className="grid grid-cols-3 gap-6 text-sm text-gray-600">
+            <div>
+              <p className="text-2xl font-black text-amber-600 mb-1">~608 000</p>
+              <p>mortes anuais — concentradas em populações com acesso limitado a cuidados de saúde, sobretudo crianças e grávidas</p>
+            </div>
+            <div>
+              <p className="text-2xl font-black text-amber-600 mb-1">17,8M</p>
+              <p>mulheres grávidas assistidas em 2025 através de intervenções de prevenção e tratamento</p>
+            </div>
+            <div>
+              <p className="text-2xl font-black text-amber-600 mb-1">2050</p>
+              <p>meta de erradicação global — requer inovação urgente em redes mosquiteiras de nova geração e novos fármacos face à resistência crescente e ao impacto de conflitos</p>
+            </div>
+          </div>
+        </div>
+
         {/* Funding gap banner */}
         <div className="bg-navy rounded-xl p-5 text-white text-center">
           <p className="text-lg font-bold">
@@ -43,7 +62,7 @@ export default function Slide04Economic() {
       </div>
 
       <div className="px-12 pb-6">
-        <p className="text-xs text-gray-400">Fonte: RBM Partnership to End Malaria; WHO World Malaria Report 2024</p>
+        <p className="text-xs text-gray-400">Fonte: RBM Partnership to End Malaria; WHO World Malaria Report 2024; The Lancet Commission; Global Fund Results Report 2025</p>
       </div>
     </div>
   )
