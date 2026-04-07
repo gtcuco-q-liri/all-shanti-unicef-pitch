@@ -22,7 +22,7 @@ export default function Slide01Cover() {
 
         <h1 className="text-6xl font-black tracking-tight mb-3">All Shanti</h1>
         <p className="text-xl font-light text-blue-100 mb-10 tracking-widest uppercase">
-          Proposta de Investigação Clínica Antimalárica
+          Proposta de Investigação Clínica no Contexto de Tratamento de Suporte Contra a Malária
         </p>
 
         <div className="w-24 h-1 bg-pink mx-auto mb-10 rounded-full" />

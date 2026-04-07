@@ -37,6 +37,16 @@ export default function Slide03Countries() {
             <span className="font-bold text-pink"> ~50% de todas as mortes</span> por malária em África.
           </p>
         </div>
+
+        <div className="mt-3 bg-pink-50 rounded-xl p-5 border border-pink-100">
+          <p className="text-sm text-pink font-medium mb-2">
+            <span className="font-bold">78% das mortes por malária</span> são crianças com menos de 5 anos — a cada minuto, uma criança morre de malária.
+          </p>
+          <p className="text-sm text-gray-600">
+            As vacinas <span className="font-medium">RTS,S e R21</span> estão agora em fase de rollout em mais de 20 países africanos,
+            com resultados significativos na redução da mortalidade grave.
+          </p>
+        </div>
       </div>
 
       <div className="px-12 pb-6">

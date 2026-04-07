@@ -27,6 +27,16 @@ export default function Slide02Crisis() {
         ))}
       </div>
 
+      {/* Context paragraph */}
+      <div className="px-12 pb-4">
+        <p className="text-sm text-gray-500 leading-relaxed">
+          A malária é causada por parasitas <em>Plasmodium</em>, transmitidos pela picada de mosquitos <em>Anopheles</em> fêmea.
+          As duas espécies principais são <span className="font-medium">P. falciparum</span> — a mais letal, dominante em África — e{' '}
+          <span className="font-medium">P. vivax</span>, a mais comum fora de África subsariana.
+          A distribuição geográfica concentra-se em África (~94% dos casos), seguida do Sudeste Asiático (~2%) e das regiões do Mediterrâneo Oriental e Américas.
+        </p>
+      </div>
+
       {/* Source */}
       <div className="px-12 pb-6">
         <p className="text-xs text-gray-400">Fonte: WHO World Malaria Report 2025</p>
