@@ -23,6 +23,8 @@ This project uses modular documentation in `/docs/`. Consult the relevant files 
 | `docs/prompts.md` | Reusable prompt templates, Lovable vocabulary reference, and DO NOT list |
 | `docs/10_AGENT_SAFETY.md` | Trust hierarchy, minimal privilege, irreversible action gates, prompt injection policy, red flags |
 | `docs/decisions/` | Local ODRs — decisions made within this repo |
+| `docs/13_COMPLIANCE_FRAMEWORKS.md` | Compliance framework directory — which standards apply per profile (universal, ai-governance, security, health, finance, climate) and when to activate them |
+| `docs/14_AI_GOVERNANCE.md` | AI governance — EU AI Act risk classification, ISO/IEC 42001:2023 AIMS, NIST AI RMF, AI inventory, risk register, human oversight, incident response |
 | `docs/decisions/template/` | Template ODRs — inherited from the base governance template |
 
 ### Conflict Resolution
@@ -228,6 +230,9 @@ Documentation is a living asset, not a one-time deliverable. When a code task ch
 | UI copy, i18n keys, or locale rules change | `docs/7_CONTENT_I18N.md` |
 | Metric definition, assumption, source contract, or pipeline change | `docs/8_DATA_AND_ANALYSIS.md` |
 | Agent permission, safety policy, or trust hierarchy change | `SYSTEM_PROMPT.md` + `docs/10_AGENT_SAFETY.md` |
+| Compliance profile added/removed, regulation version bumped | `docs/13_COMPLIANCE_FRAMEWORKS.md` + `docs/0_GROUND_RULES.md` (compliance_profiles) |
+| AI system added, model changed, or AI risk level updated | `docs/14_AI_GOVERNANCE.md` (AI inventory + risk register) |
+| EU AI Act risk classification changed (e.g. product now high-risk) | `docs/14_AI_GOVERNANCE.md` + `SYSTEM_PROMPT.md` (version bump) |
 
 > **The task is NOT complete until the corresponding docs are updated.** This is enforcement, not suggestion. This rule is verified by the Task Completion Checklist (§8).
 
