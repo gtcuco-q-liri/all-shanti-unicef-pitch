@@ -2,6 +2,11 @@
 
 ---
 
+## 2026-05-07 — Migração path local: ~/Documents/github → ~/devs/github (#19)
+
+- Repo movido localmente para fora do iCloud Drive (eviction provocava falhas de acesso)
+- Path references actualizadas em CLAUDE.md (mergeada em PR #19)
+
 ## [2026-04-07] — Integração de notas de revisão do colega (PR #9)
 
 ### Alterado
