@@ -6,6 +6,12 @@ _Last updated: 2026-04-07_
 
 ## Completed
 
+
+### 2026-05-07 — Migração path local: ~/Documents/github → ~/devs/github (#19)
+
+- 2026-05-07 — Repo movido localmente para fora do iCloud Drive (eviction de ficheiros provocava falhas de acesso intermitentes)
+- 2026-05-07 —  actualizado em PR #19
+
 - [x] Criar apresentação web React/Vite/Tailwind (14 slides)
 - [x] Atualizar dados WHO 2025 (282M casos, 610K mortes, 75% crianças <5)
 - [x] Definir países piloto baseados em investigação (Nigéria, Uganda, Moçambique)
