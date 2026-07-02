@@ -17,7 +17,7 @@ This project uses modular documentation in `/docs/`. Consult the relevant files 
 | `docs/4_SEO_AND_AEO.md` | Meta tags, structured data, semantic HTML |
 | `docs/5_ROADMAP_AND_TASKS.md` | Execution state, backlog, completed tasks |
 | `docs/6_CONTENT_AND_SOCIAL.md` | Content strategy, social media, SEO/AEO guidelines |
-| `docs/6_HEALTH_CHECK.md` | Weekly health check checklist (routes, schema, auth, security, build, docs, integrations, i18n) |
+| `docs/15_HEALTH_CHECK.md` | Weekly health check checklist (routes, schema, auth, security, build, docs, integrations, i18n) |
 | `docs/7_CONTENT_I18N.md` | UI copy rules, i18n key naming convention, namespace strategy, copy rules, length constraints |
 | `docs/8_DATA_AND_ANALYSIS.md` | Metric registry, assumptions log, source contracts, pipeline order, data quality checks |
 | `docs/prompts.md` | Reusable prompt templates, Lovable vocabulary reference, and DO NOT list |

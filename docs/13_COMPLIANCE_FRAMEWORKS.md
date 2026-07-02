@@ -52,7 +52,7 @@ These apply to **every repo** governed by this template, regardless of domain.
 
 ### Software Quality (ISO/IEC 25010:2023)
 
-Eight quality characteristics. Use as a **rubric for health checks** (`docs/6_HEALTH_CHECK.md`), not as a certification target.
+Eight quality characteristics. Use as a **rubric for health checks** (`docs/15_HEALTH_CHECK.md`), not as a certification target.
 
 | Characteristic | Definition | Proxy metric |
 |---|---|---|
