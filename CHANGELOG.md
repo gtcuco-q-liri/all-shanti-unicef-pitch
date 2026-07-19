@@ -1,5 +1,11 @@
 # Changelog — All Shanti UNICEF Pitch
 
+## [1.18] — 2026-07-19
+
+### Changed
+
+- Declared the product-and-evidence contract and profile.
+
 ---
 
 ## 2026-05-07 — Migração path local: ~/Documents/github → ~/devs/github (#19)

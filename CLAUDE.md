@@ -1,4 +1,4 @@
-# [Project Name]
+# All Shanti UNICEF Pitch
 
 [One-line description of the project.]
 
@@ -6,9 +6,9 @@
 
 | Key | Value |
 |-----|-------|
-| **Local path** | `~/devs/github/[repo-name]` |
-| **Remote** | `https://github.com/[org]/[repo-name].git` |
-| **GitHub account** | `[account]` |
+| **Local path** | `~/devs/github/all-shanti-unicef-pitch` |
+| **Remote** | `https://github.com/gtcuco-q-liri/all-shanti-unicef-pitch.git` |
+| **GitHub account** | `gtcuco-q-liri` |
 | **Production URL** | `[url or N/A]` |
 
 ## Tech Stack
@@ -82,14 +82,14 @@ Before starting any task, load only the files relevant to that task type. Do not
 
 | Task type | Load | Skip |
 |---|---|---|
-| Code — feature or fix | `docs/0_GROUND_RULES.md`, `docs/2_ARCHITECTURE.md` | `docs/1_BUSINESS_CONTEXT.md`, `docs/4_SEO_AND_AEO.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
-| Code — UI component | `docs/0_GROUND_RULES.md`, `docs/2_ARCHITECTURE.md`, `docs/3_UI_UX_GUIDELINES.md`, `docs/prompts.md` | `docs/1_BUSINESS_CONTEXT.md`, `docs/4_SEO_AND_AEO.md` |
-| Code — UI copy / i18n | `docs/0_GROUND_RULES.md`, `docs/7_CONTENT_I18N.md` | `docs/2_ARCHITECTURE.md`, `docs/4_SEO_AND_AEO.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
+| Code — feature or fix | `docs/0_GROUND_RULES.md`, `docs/2_ARCHITECTURE.md` | `docs/1_BUSINESS_CONTEXT.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
+| Code — UI component | `docs/0_GROUND_RULES.md`, `docs/2_ARCHITECTURE.md`, `docs/3_UI_UX_GUIDELINES.md`, `docs/prompts.md` | `docs/1_BUSINESS_CONTEXT.md` |
+| Code — UI copy / i18n | `docs/0_GROUND_RULES.md`, `docs/7_CONTENT_I18N.md` | `docs/2_ARCHITECTURE.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
 | Code — content layer decision (i18n vs storage vs MD) | `docs/0_GROUND_RULES.md`, `docs/7_CONTENT_I18N.md`, `docs/2_ARCHITECTURE.md` | `docs/3_UI_UX_GUIDELINES.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
-| Code — data / analysis | `docs/0_GROUND_RULES.md`, `docs/8_DATA_AND_ANALYSIS.md` | `docs/3_UI_UX_GUIDELINES.md`, `docs/4_SEO_AND_AEO.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
-| Code — DB / schema | `docs/0_GROUND_RULES.md`, `docs/2_ARCHITECTURE.md`, `docs/7_CONTENT_I18N.md` (when content tables) | `docs/3_UI_UX_GUIDELINES.md`, `docs/4_SEO_AND_AEO.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
+| Code — data / analysis | `docs/0_GROUND_RULES.md`, `docs/8_DATA_AND_ANALYSIS.md` | `docs/3_UI_UX_GUIDELINES.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
+| Code — DB / schema | `docs/0_GROUND_RULES.md`, `docs/2_ARCHITECTURE.md`, `docs/7_CONTENT_I18N.md` (when content tables) | `docs/3_UI_UX_GUIDELINES.md`, `docs/6_CONTENT_AND_SOCIAL.md` |
 | Security review | `docs/0_GROUND_RULES.md`, `SECURITY.md` | All others |
-| SEO / copy / content | `docs/1_BUSINESS_CONTEXT.md`, `docs/4_SEO_AND_AEO.md`, `docs/6_CONTENT_AND_SOCIAL.md` | `docs/2_ARCHITECTURE.md`, `docs/3_UI_UX_GUIDELINES.md` |
+| SEO / copy / content | `docs/1_BUSINESS_CONTEXT.md`, `docs/6_CONTENT_AND_SOCIAL.md` | `docs/2_ARCHITECTURE.md`, `docs/3_UI_UX_GUIDELINES.md` |
 | Roadmap / planning | `docs/5_ROADMAP_AND_TASKS.md`, `docs/1_BUSINESS_CONTEXT.md` | All others |
 | Weekly health check | `docs/15_HEALTH_CHECK.md` | All others |
 | Agent skill — create/edit | `docs/9_AGENT_SKILLS.md`, `skills/template/SKILL.md` | All others |

@@ -4,7 +4,7 @@
 
 | Layer | Technology | Version |
 |-------|-----------|---------|
-| [Layer] | [Technology] | [Version] |
+| Frontend | React / Vite / TypeScript | See `package.json` |
 
 > **The stack above is fixed.** Do not introduce alternatives without explicit approval.
 

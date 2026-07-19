@@ -4,6 +4,15 @@
 
 ---
 
+## 0. Product, Evidence & Data Posture
+
+- [ ] `docs/1_BUSINESS_CONTEXT.md` contract still matches the repo's role, runtime, storage, PII, retention, and evidence mode
+- [ ] Every active metric/event/durable dataset has a named consumer (decision, control, workflow, or legal obligation)
+- [ ] Any PII retention rule has a tested deletion/anonymisation mechanism
+- [ ] Cross-repository analysis is aggregate by default; any person-level join remains explicitly justified
+
+---
+
 ## 1. Routes & Navigation
 
 - [ ] All routes in `docs/2_ARCHITECTURE.md` have matching components in code
@@ -39,7 +48,7 @@
 - [ ] `npm run lint` passes with zero errors
 - [ ] No new warnings introduced
 - [ ] Bundle size within budget (document current size and threshold)
-- [ ] Core Web Vitals acceptable (LCP, FID, CLS)
+- [ ] Core Web Vitals acceptable (LCP < 2.5s, INP < 200ms, CLS < 0.1)
 
 ## 6. Documentation Alignment
 

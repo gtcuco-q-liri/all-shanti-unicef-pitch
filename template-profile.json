@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "profile": "react-supabase",
+  "applied_at": "2026-07-19T00:00:00.000Z",
+  "retained_optional_paths": ["docs/3_UI_UX_GUIDELINES.md", "docs/6_CONTENT_AND_SOCIAL.md", "docs/7_CONTENT_I18N.md", "docs/8_DATA_AND_ANALYSIS.md", "docs/9_AGENT_SKILLS.md", "docs/12_DEPENDENCY_MANAGEMENT.md", "docs/13_COMPLIANCE_FRAMEWORKS.md", "docs/14_AI_GOVERNANCE.md", "docs/guides/lovable-vocabulary.md", "skills"],
+  "removed_paths": ["tests/template"]
+}
