@@ -1,3 +1,17 @@
+---
+contract_version: 1
+repository_role: content
+product_ref: "All Shanti UNICEF pitch"
+beneficiary: "UNICEF and prospective programme partners"
+intended_outcome: "Communicate a clear, evidence-based proposal for All Shanti’s potential programme contribution."
+runtime: interactive
+data_posture: none
+pii: none
+storage: none
+evidence_mode: artifact
+retention: "Versioned pitch material and cited evidence are retained while the proposal is active, then archived or removed when superseded."
+---
+
 # Business Context — All Shanti UNICEF Pitch
 
 ---

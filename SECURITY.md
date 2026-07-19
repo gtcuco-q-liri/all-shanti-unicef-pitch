@@ -68,7 +68,7 @@ The following files contain secrets and must NEVER be committed unencrypted:
 
 For sensitive data that **must** be version-controlled (e.g. bank accounts, shared credentials), use **git-crypt** to encrypt files transparently. Files appear as plain text locally but are encrypted on GitHub.
 
-- Setup guide: [`docs/guides/git-crypt-setup.md`](docs/guides/git-crypt-setup.md)
+- Git-crypt is not used in this repository.
 - Encrypted paths are defined in `.gitattributes`
 - Each repo has its own independent key — export and back it up securely
 

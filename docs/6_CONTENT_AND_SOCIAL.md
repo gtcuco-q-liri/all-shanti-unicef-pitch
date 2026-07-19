@@ -1,0 +1,306 @@
+# Content & Social Media Strategy
+
+> Remove this file if the project has no public-facing content or social media presence (e.g. CLI tools, internal apps, APIs).
+
+## Brand Voice
+
+> Distinct from `docs/3_UI_UX_GUIDELINES.md` §Emotional Tone: that one guides *UI design* decisions (spacing, color, motion). This one guides *written content* (blog, social, marketing copy). They should be consistent with each other but are not the same table — don't merge them.
+
+| Attribute | Value |
+|-----------|-------|
+| **Tone** | [e.g. calm, intelligent, premium — or: playful, direct, bold] |
+| **Emotional keywords** | [3-5 adjectives that describe how the brand should *feel*] |
+| **Intellectual position** | [e.g. thought leader, practical helper, provocateur, educator] |
+| **What we are NOT** | [e.g. aggressive, salesy, clickbait, jargon-heavy] |
+
+### Editorial Rules
+
+- [e.g. One central thesis per piece of content]
+- [e.g. Short paragraphs, slow rhythm, prefer clarity over density]
+- [e.g. Never use call-to-action language in thought leadership content]
+- [e.g. Always back claims with data, examples, or observable behavior]
+
+---
+
+## Platforms
+
+### Active Channels
+
+| Platform | Purpose | Frequency | Primary audience |
+|----------|---------|-----------|-----------------|
+| [e.g. Blog] | [e.g. Long-form thought leadership] | [e.g. 2x/month] | [e.g. Property owners, investors] |
+| [e.g. LinkedIn] | [e.g. Professional insight, behavioral lens] | [e.g. 3x/week] | [e.g. Decision-makers, founders] |
+| [e.g. Instagram] | [e.g. Visual + emotional connection] | [e.g. 4x/week] | [e.g. Guests, lifestyle audience] |
+
+---
+
+## Technical SEO & AEO
+
+> Merged from the former `4_SEO_AND_AEO.md` (removed in the v2.0 restructure — this file is now the single home for SEO/AEO/GEO, both technical and editorial). If this project has no public-facing content, remove this whole file per the note at the top.
+
+### Meta Tags
+
+- [e.g. SEOHead component: title <60 chars, description <160 chars, canonical URL]
+- [e.g. Open Graph tags for social sharing]
+
+### Semantic HTML
+
+- One `<h1>` per page
+- Sequential heading hierarchy (h1 → h2 → h3)
+- Use semantic elements (`<nav>`, `<main>`, `<article>`, `<section>`, `<footer>`)
+- ARIA labels where needed
+
+### Structured Data (JSON-LD)
+
+| Schema | Where |
+|--------|-------|
+| [e.g. LocalBusiness] | [page/component] |
+| [e.g. FAQPage] | [page/component] |
+
+> See §GEO Layer → Technical Requirements below for the full list of schema types AI answer engines expect.
+
+### Images
+
+- Descriptive `alt` text on all images
+- Lazy loading for below-the-fold images
+- Optimised formats (WebP for web, JPG for social)
+
+### Sitemap & Robots
+
+- `public/sitemap.xml` — auto-generated or manual
+- `public/robots.txt` — allow all public content, explicitly allow AI crawlers:
+
+```
+# AI crawlers — explicitly allowed for GEO visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+```
+
+> This list rots — AI crawlers are added faster than any static doc can track. Re-verify against a current source (e.g. Cloudflare's or Google's crawler lists) before relying on it.
+
+### llms.txt
+
+Create a `public/llms.txt` file with a structured summary of the project for LLM consumption. This is the AI equivalent of an elevator pitch — read by LLMs before they process your content.
+
+```markdown
+# [Brand Name]
+
+> [One-line description]
+
+[2-3 sentences about what the project/company does]
+
+## [Key sections: Products, Services, Locations, Contact, Key Facts]
+
+[Structured, factual information]
+```
+
+> Without `llms.txt`, AI must infer what your site is from HTML — and may misinterpret it. With it, every AI that visits your site gets a clear, structured briefing.
+
+---
+
+## Blog / Long-Form Content
+
+### Article Structure
+
+| Section | Purpose | Guidelines |
+|---------|---------|------------|
+| **Title** | First impression + search signal | Strong point of view, not descriptive. Include 1 searchable term naturally. Avoid forced SEO keywords |
+| **Metadata** | Context | Author, date, estimated reading time |
+| **TL;DR** (4-5 lines) | Condensed answer for AEO extraction | Write as a complete answer, not a teaser. Must make sense if extracted by an AI engine |
+| **Key Takeaways** (4-6 bullets) | Scannable value | Complete statements, not fragments. Each answers "what should I know?" |
+| **Body sections** (3-5) | Core content | Each section has a clear H2. First sentence of each section is a declarative statement (AEO extraction target). Mix narrative with practical application |
+| **Brand application** (1 section) | Credibility | How these principles connect to the brand's work. Institutional tone, not promotional |
+| **Conclusion** | Synthesis | Reinforce central idea. Leave the reader with clarity, not urgency |
+| **FAQ** (3-5 questions) | SEO + AEO | Questions phrased as users would ask them. Direct answers in first 1-2 sentences. Supports FAQ schema markup |
+| **Tags / Categories** | Consistency | Aligned with strategic themes. Consistent across all articles |
+
+### SEO Layer (Blog)
+
+- **Title:** Contains central idea + primary searchable term (natural, not forced)
+- **First paragraph:** Explicitly states the topic. Declarative writing ("X is...", "Y works because...")
+- **Subtitles (H2/H3):** At least some framed as questions or clear statements close to human search language
+- **Semantic repetition:** Key terms reappear naturally throughout. Avoid excessive synonyms that confuse indexing
+- **FAQ:** Real questions, phrased as users would search. Direct answers in first 1-2 sentences
+- **Tags/categories:** Consistent across articles. Aligned with strategic themes
+
+### AEO Layer (Blog)
+
+- **Concise answer blocks:** 1-2 declarative sentences per section, under 40 words. Structure: "X is important because Y." Shorter, self-contained passages are easier for answer engines to extract cleanly than long, qualified paragraphs
+- **TL;DR as extractable answer:** Written as a condensed response, not a teaser. Must be citable by answer engines
+- **Key Takeaways as complete statements:** Each bullet implicitly answers "what should I know?"
+- **Explanatory language:** Prioritize "why" and "how" over "what"
+- **Explicit authority:** Brand name referenced naturally in the body. Associate ideas with the brand's way of thinking
+- **Clarity > originality:** Ideas can be sophisticated, but formulation must be simple and extractable by AI
+- **Structured data:** Implement JSON-LD schema (Article, FAQPage, BreadcrumbList). Comprehensive schema markup makes content easier for AI crawlers to parse into citable facts
+- **Raw HTML content:** Ensure content appears in HTML source, not generated via JavaScript only
+
+### GEO Layer (Generative Engine Optimization)
+
+GEO targets AI-powered search (ChatGPT, Perplexity, Google AI Overviews, Claude). Unlike SEO (ranking) and AEO (featured snippets), GEO optimizes for **being cited as a source** in AI-generated answers.
+
+#### Content Principles
+
+- **Factual density > keyword density:** Data, numbers, verifiable claims get cited. Narrative and opinion do not
+- **Declarative statements:** At least 1-2 per section in the format "X is Y because Z." AI extracts these as citable facts
+- **Content freshness:** Update key content on a regular cadence (e.g. every 1-2 weeks for fast-moving topics). Stale content with no visible update signal tends to lose citation priority over time — track your own citation rate before and after refreshes rather than assuming a fixed decay window
+- **Quick answer blocks:** First 40 words of each section should be a complete, standalone answer
+- **Schema stacking:** Multiple JSON-LD types on the same page (e.g. Article + FAQPage + Organization) — gives answer engines more structured surface area to extract from than a single schema type
+
+#### Citability Checklist
+
+High citability formats (prioritize these):
+- [ ] Lists and rankings ("Top X...", "Best Y for Z")
+- [ ] Comparison tables with specific data
+- [ ] Clear definitions ("X is...")
+- [ ] Data with sources and dates
+- [ ] FAQ with direct answers
+
+Low citability (use for humans, not AI extraction):
+- Narrative / opinion / storytelling
+- Metaphors without explanation
+- Vague or poetic language
+
+#### Technical Requirements
+
+- **robots.txt:** see §Technical SEO & AEO → Sitemap & Robots above for the full AI-crawler allowlist
+- **llms.txt:** see §Technical SEO & AEO → llms.txt above
+- **JSON-LD completeness:** Ensure all 8 critical schema types are covered where applicable: Organization, Person, LocalBusiness, Product/Service, FAQPage, Article, Review/AggregateRating, BreadcrumbList
+- **Raw HTML:** Content must be in HTML source code, not JavaScript-rendered only. Many AI crawlers cannot execute JavaScript
+
+#### GEO Monitoring
+
+- Monitor brand mentions in ChatGPT, Perplexity, Google AI Overviews (manual checks until tooling matures)
+- Track if content appears as cited source in AI answers
+- Compare citation frequency before/after content updates to calibrate freshness cycles
+
+---
+
+## Social Media — Short-Form Content
+
+### Instagram / Visual Platforms
+
+| Element | Guidelines |
+|---------|------------|
+| **Anchor idea** | One observation about human behavior, perception, or decision. Not copy yet — the idea that guides everything |
+| **Image** | Real or AI-conceptual, simple and clean. Suggests feeling, doesn't explain concept. Confirms the idea emotionally, doesn't illustrate literally |
+| **Opening** (1-2 visible lines) | Short, intuitive, almost obvious — but subtly provocative. Human language, not technical |
+| **Body** (2-4 lines) | Introduce insight without jargon. Show how people make decisions. Implicit application to brand context |
+| **Brand signature** (1 line) | Soft connection to brand positioning. Don't sell, don't explain. Show there's a system of thought behind it |
+| **Emotional close** (1 line) | Phrase that closes the emotional cycle. Not a direct question — a mental echo. Should make the reader pause before scrolling |
+
+#### AEO + Algorithm Training (Visual Platforms)
+
+- **First sentence:** Simple, universal, declarative statement
+- **Caption:** Avoid opaque metaphors without explanation. Introduce "why" implicitly
+- **Thematic consistency:** Same concepts repeated over weeks. Helps algorithms associate the account with clear themes
+- **Strategic hashtags:** Few, for thematic classification — not mass reach
+- **Extractable text:** Sentences that make sense outside the visual context. Important for AEO and cross-platform redistribution
+- **Fixed hashtags:** [Define project-specific hashtags to use on every post]
+
+### LinkedIn / Professional Platform
+
+| Element | Guidelines |
+|---------|------------|
+| **Hook** (1-2 lines) | Counterintuitive statement. Questions an "obvious" belief. Not about technique — about human behavior |
+| **Insight expansion** (3-5 lines) | Explanation grounded in behavioral patterns. Show how seemingly rational decisions are emotionally driven |
+| **Brand framing** (1-2 lines) | How the brand designs systems that reduce human error. Emphasis on predictability, clear signals, structure |
+| **Reflective close** (1-2 lines) | Reinterprets the problem, doesn't close it. May raise a doubt or invert the logic. Goal: make the reader rethink how they make decisions |
+
+#### LinkedIn Optimization
+
+- **Length:** 90-180 words per post. Optimize for dwell time (45+ seconds reading)
+- **First 2 lines:** Clear declarative sentences. Extractable as answers ("X happens because Y")
+- **Consistent vocabulary:** Repeat anchor terms over time (e.g. predictability, risk, decision-making, assets). Avoid excessive creative synonyms
+- **Logical structure:** Problem → behavioral cause → reframing → implication. Facilitates citation by answer engines and AI
+- **Explicit authority:** Natural reference to the brand as a way of thinking, not as a commercial entity
+- **Reflective close:** Formulation that can be quoted in isolation. Complete sentences, not vague slogans
+- **No commercial CTA:** Never include sales calls-to-action in thought leadership posts
+
+---
+
+## Image Strategy
+
+| Type | When to use | Examples |
+|------|-------------|---------|
+| **AI conceptual** | Abstract ideas, systems, perception | Behavioral concepts, decision frameworks |
+| **Real photography** | Territory, context, operations | Locations, spaces, real situations |
+| **Simple diagrams** | Processes, comparisons, data | Flowcharts, comparison tables, timelines |
+
+### Image Rules
+
+- [e.g. Every image must have alt text that works as a standalone description]
+- [e.g. OG images generated for every blog article (1200x630px)]
+- [e.g. Consistent visual style across platforms]
+- [e.g. No stock photography that feels generic]
+
+---
+
+## Content Calendar
+
+| Day | Platform | Content type |
+|-----|----------|-------------|
+| [e.g. Mon] | [e.g. LinkedIn] | [e.g. Behavioral insight post] |
+| [e.g. Wed] | [e.g. Instagram] | [e.g. Visual + emotional caption] |
+| [e.g. Fri] | [e.g. Blog] | [e.g. Long-form article (bi-weekly)] |
+
+---
+
+## Metrics
+
+| Platform | Primary metric | Target | Secondary metric |
+|----------|---------------|--------|-----------------|
+| Blog | [e.g. Organic traffic] | [e.g. +20%/quarter] | [e.g. Average time on page] |
+| LinkedIn | [e.g. Dwell time, impressions] | [e.g. 45s+ average read] | [e.g. Profile views] |
+| Instagram | [e.g. Saves, shares] | [e.g. 3%+ save rate] | [e.g. Reach] |
+
+### AEO Metrics
+
+| Metric | How to measure |
+|--------|---------------|
+| AI citation rate | Monitor brand mentions in ChatGPT, Perplexity, Google AI Overviews |
+| Featured snippet ownership | Track position zero results for target queries |
+| Schema validation | Regular checks via Google Rich Results Test |
+| Cross-platform extraction | Track when social content is cited/referenced by AI engines |
+
+---
+
+## Cross-Platform Consistency
+
+- **Same strategic themes** across all platforms (adapted to format, not reinvented)
+- **Blog as source of truth** — social content derived from long-form articles
+- **Vocabulary alignment** — anchor terms consistent across blog, LinkedIn, Instagram
+- **Visual consistency** — same color palette, typography feel, image style across platforms
+- **Entity consistency** — brand name, descriptions, and claims identical across all profiles and content (critical for AEO entity recognition)
