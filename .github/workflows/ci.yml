@@ -39,7 +39,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Detecta uma vez o que existe no repo. Os jobs pesados usam estes outputs
+  # ao nível do job, evitando arrancar um runner apenas para fazer skip.
+  detect:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    outputs:
+      node: ${{ steps.d.outputs.node }}
+      deno: ${{ steps.d.outputs.deno }}
+      template: ${{ steps.d.outputs.template }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: d
+        run: node scripts/detect-ci-mode.mjs --github-output >> "$GITHUB_OUTPUT"
+
   build-test:
+    needs: detect
+    if: github.event_name == 'pull_request' && needs.detect.outputs.node != 'false'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -84,6 +100,8 @@ jobs:
         run: gitleaks detect --no-banner --redact --verbose
 
   deno-check:
+    needs: detect
+    if: github.event_name == 'pull_request' && needs.detect.outputs.deno != 'false'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -124,6 +142,20 @@ jobs:
             fi
           done
           exit $real_fail
+
+  template-tests:
+    needs: detect
+    if: github.event_name == 'pull_request' && needs.detect.outputs.template != 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test template scaffolding and CI detection
+        run: |
+          node --test tests/template/*.test.mjs
+          node tests/template/run-ci-fixtures.mjs
 
   # Gate de governance: um PR que adiciona/altera artefactos rastreados tem de
   # actualizar tambem INDEX.md ou CHANGELOG.md. Universal e seguro — se nenhum

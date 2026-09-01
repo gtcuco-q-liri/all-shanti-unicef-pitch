@@ -1,5 +1,10 @@
 # Changelog — All Shanti UNICEF Pitch
 
+## 2026-09-01 — Piloto de redução do GitHub Actions
+
+- Centralizada a detecção de Node/Deno num único job e movidos os portões para o nível do job, evitando runners que arrancavam apenas para fazer skip.
+- `build-test` e `deno-check` passam a executar apenas em pull requests; `gitleaks` mantém a cobertura em pull requests e em pushes directos para `main`.
+
 ## [1.18] — 2026-07-19
 
 ### Changed
