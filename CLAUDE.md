@@ -118,7 +118,7 @@ Para qualquer biblioteca, framework, SDK, API ou CLI listada no **Tech Stack** a
 
 > Não usar Context7 para: lógica de negócio, refactoring, code review, conceitos gerais de programação.
 
-## Cross-Reference Index
+## INDEX.md — mandatory governance file
 
 If this repo contains an `INDEX.md` (common in academic/study repos), always read it before answering questions about the content it maps. The INDEX.md provides cross-references between topics, sources, and materials that are not obvious from the directory structure alone.
 

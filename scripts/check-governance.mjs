@@ -5,10 +5,19 @@ import { dirname, relative, resolve } from "node:path";
 
 const root = process.cwd();
 const profileManifestPath = resolve(root, "template-profile.json");
-const projectMode = process.argv.includes("--project") || existsSync(profileManifestPath);
+const explicitProjectMode = process.argv.includes("--project");
+const templateMode = process.argv.includes("--template");
+// Absence of a profile manifest also describes legacy consumers, so original
+// template identity must never be inferred from it.
+const projectMode = !templateMode && (explicitProjectMode || existsSync(profileManifestPath));
+const validationMode = templateMode ? "template" : projectMode ? "project" : "legacy";
 const requireProductEvidenceContract = projectMode || process.argv.includes("--require-product-evidence-contract");
 const failures = [];
 let profileManifest;
+
+if (templateMode && explicitProjectMode) {
+  failures.push("--template and --project are mutually exclusive");
+}
 
 if (existsSync(profileManifestPath)) {
   try {
@@ -36,7 +45,7 @@ const requiredFiles = [
   "scripts/scaffold.mjs",
 ];
 
-if (!projectMode) {
+if (templateMode) {
   requiredFiles.push(
     "docs/10_AGENT_SAFETY.md",
     "docs/11_TESTING.md",
@@ -58,11 +67,94 @@ if (!projectMode) {
     "tests/template/fixtures/bun/vendor/fixture-local/package.json",
     "tests/template/fixtures/deno/supabase/functions/example/index.ts",
     "tests/template/fixtures/deno/supabase/functions/example/math.ts",
+    "scripts/run-python-ci.py",
+    "tests/template/python_ci_helper_test.py",
+    "tests/template/fixtures/python/tests/test_example.py",
   );
 }
 
 function read(path) {
   return readFileSync(resolve(root, path), "utf8");
+}
+
+function maskMarkdownCode(content) {
+  const masked = content.split("");
+  const maskRange = (start, end) => {
+    for (let index = start; index < end; index += 1) {
+      if (masked[index] !== "\n" && masked[index] !== "\r") {
+        masked[index] = " ";
+      }
+    }
+  };
+
+  // Mask fenced code first. A closing fence may be longer than its opener;
+  // shorter runs and the other fence character do not close it. If no closing
+  // fence exists, the code block continues to EOF.
+  let openFence = null;
+  let lineStart = 0;
+  while (lineStart < content.length) {
+    const newlineIndex = content.indexOf("\n", lineStart);
+    const lineEnd = newlineIndex === -1 ? content.length : newlineIndex + 1;
+    const rawLine = content.slice(lineStart, newlineIndex === -1 ? content.length : newlineIndex);
+    const line = rawLine.endsWith("\r") ? rawLine.slice(0, -1) : rawLine;
+
+    if (openFence) {
+      const closingMatch = line.match(/^ {0,3}(`+|~+)[ \t]*$/);
+      if (
+        closingMatch &&
+        closingMatch[1][0] === openFence.character &&
+        closingMatch[1].length >= openFence.length
+      ) {
+        maskRange(openFence.start, lineEnd);
+        openFence = null;
+      }
+    } else {
+      const openingMatch = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+      if (
+        openingMatch &&
+        !(openingMatch[1][0] === "`" && openingMatch[2].includes("`"))
+      ) {
+        openFence = {
+          character: openingMatch[1][0],
+          length: openingMatch[1].length,
+          start: lineStart,
+        };
+      }
+    }
+
+    lineStart = lineEnd;
+  }
+  if (openFence) maskRange(openFence.start, content.length);
+
+  // Code spans open and close only with maximal backtick runs of equal length.
+  // Do not split a longer run to close a shorter one: unmatched delimiters are
+  // literal Markdown and any links beside them must still be validated.
+  const runs = [];
+  for (let index = 0; index < content.length; index += 1) {
+    if (masked[index] !== "`") continue;
+    const start = index;
+    while (index + 1 < content.length && masked[index + 1] === "`") index += 1;
+    runs.push({ start, length: index - start + 1 });
+  }
+
+  const nextRunWithLength = new Array(runs.length).fill(-1);
+  const nextByLength = new Map();
+  for (let runIndex = runs.length - 1; runIndex >= 0; runIndex -= 1) {
+    const run = runs[runIndex];
+    nextRunWithLength[runIndex] = nextByLength.get(run.length) ?? -1;
+    nextByLength.set(run.length, runIndex);
+  }
+
+  for (let runIndex = 0; runIndex < runs.length; runIndex += 1) {
+    const closingRunIndex = nextRunWithLength[runIndex];
+    if (closingRunIndex === -1) continue;
+    const opening = runs[runIndex];
+    const closing = runs[closingRunIndex];
+    maskRange(opening.start, closing.start + closing.length);
+    runIndex = closingRunIndex;
+  }
+
+  return masked.join("");
 }
 
 function fail(message) {
@@ -182,26 +274,40 @@ if (profileManifest) {
   }
 }
 
-if (failures.length === 0) {
+if (existsSync(resolve(root, "SYSTEM_PROMPT.md"))) {
   const systemPrompt = read("SYSTEM_PROMPT.md");
-  const readme = read("README.md");
-  const changelog = read("CHANGELOG.md");
   const systemVersion = systemPrompt.match(/> Version:\s*([0-9]+(?:\.[0-9]+)*)/)?.[1];
-  const readmeVersion = readme.match(/Shared operating policy \(v([0-9]+(?:\.[0-9]+)*)/)?.[1];
-
   if (!systemVersion) fail("SYSTEM_PROMPT.md has no parseable Version header");
-  if (!readmeVersion) fail("README.md has no parseable SYSTEM_PROMPT version");
-  if (systemVersion && readmeVersion && systemVersion !== readmeVersion) {
-    fail(`version drift: SYSTEM_PROMPT.md=${systemVersion}, README.md=${readmeVersion}`);
-  }
-  if (systemVersion && !changelog.includes(`## [${systemVersion}]`)) {
-    fail(`CHANGELOG.md has no release section for version ${systemVersion}`);
+
+  if (templateMode && existsSync(resolve(root, "README.md")) && existsSync(resolve(root, "CHANGELOG.md"))) {
+    const readme = read("README.md");
+    const changelog = read("CHANGELOG.md");
+    const readmeVersion = readme.match(/Shared operating policy \(v([0-9]+(?:\.[0-9]+)*)/)?.[1];
+
+    if (!readmeVersion) fail("README.md has no parseable SYSTEM_PROMPT version");
+    if (systemVersion && readmeVersion && systemVersion !== readmeVersion) {
+      fail(`version drift: SYSTEM_PROMPT.md=${systemVersion}, README.md=${readmeVersion}`);
+    }
+    if (systemVersion && !changelog.includes(`## [${systemVersion}]`)) {
+      fail(`CHANGELOG.md has no release section for version ${systemVersion}`);
+    }
+    // The check above only proves the version EXISTS somewhere in the changelog.
+    // It stays green when CHANGELOG is bumped and SYSTEM_PROMPT is not, because
+    // the older section is still present — which is how 2.4 and 2.7 both shipped
+    // with a stale header. Compare against the TOP entry instead.
+    const latestChangelogVersion = changelog.match(/^## \[([0-9]+(?:\.[0-9]+)*)\]/m)?.[1];
+    if (systemVersion && latestChangelogVersion && systemVersion !== latestChangelogVersion) {
+      fail(
+        `version drift: CHANGELOG.md latest=${latestChangelogVersion}, ` +
+          `SYSTEM_PROMPT.md=${systemVersion} — bump the header and its changelog table too`
+      );
+    }
   }
 }
 
 function walk(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    if ([".git", "node_modules"].includes(entry.name)) return [];
+    if ([".git", ".venv", ".worktrees", "node_modules", "vendor", "venv"].includes(entry.name)) return [];
     const fullPath = resolve(directory, entry.name);
     return entry.isDirectory() ? walk(fullPath) : [fullPath];
   });
@@ -219,16 +325,17 @@ const retiredPaths = ["docs/4_SEO_AND_AEO.md", "docs/6_HEALTH_CHECK.md"];
 for (const absolutePath of markdownFiles) {
   const repoPath = relative(root, absolutePath);
   const content = readFileSync(absolutePath, "utf8");
+  const linkScanContent = maskMarkdownCode(content);
 
   if (!historicalFiles.has(repoPath)) {
     for (const retiredPath of retiredPaths) {
-      if (content.includes(retiredPath)) {
+      if (linkScanContent.includes(retiredPath)) {
         fail(`${repoPath} references retired path: ${retiredPath}`);
       }
     }
   }
 
-  for (const match of content.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
+  for (const match of linkScanContent.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
     let target = match[1].trim().replace(/^<|>$/g, "");
     if (/^(https?:|mailto:|#|\/)/.test(target)) continue;
     if (target.startsWith("../../security/")) continue; // GitHub repository UI route.
@@ -272,10 +379,40 @@ if (projectMode) {
   }
 }
 
+// ODR-011 — ficheiros gerados validam-se pelo CABEÇALHO, nunca por comparação
+// byte a byte com o template. Comparar marcaria como drift todos os repositórios
+// correctamente migrados: o ficheiro deles difere do template por desenho.
+//
+// O que se valida aqui é o contrato do cabeçalho: se um ficheiro se declara
+// gerado, tem de nomear o script que o produz e avisar quem o abrir de que
+// editá-lo não guarda. Um cabeçalho a meio do ficheiro não conta — só a
+// primeira linha, que é a que alguém lê antes de escrever.
+const GENERATED_FILES = ["docs/5_ROADMAP_AND_TASKS.md"];
+const GENERATED_HEADER = /^<!--\s*GERADO POR\s+(\S+)\s+—\s*(.*?)\s*-->\s*$/;
+
+for (const path of GENERATED_FILES) {
+  if (!existsSync(resolve(root, path))) continue;
+  const content = read(path);
+  if (!content) continue;
+  const first = content.split("\n", 1)[0] ?? "";
+  if (!/GERADO POR/.test(content)) continue;          // escrito à mão: nada a validar
+  const match = first.match(GENERATED_HEADER);
+  if (!match) {
+    fail(`${path} mentions GERADO POR but the first line is not a well-formed generation header`);
+    continue;
+  }
+  if (!/\.(py|mjs|js|sh)$/.test(match[1])) {
+    fail(`${path} generation header does not name a script: ${match[1]}`);
+  }
+  if (!/NÃO EDITAR À MÃO/i.test(match[2])) {
+    fail(`${path} generation header must warn that hand edits are not saved`);
+  }
+}
+
 if (failures.length > 0) {
   console.error(`Governance check failed (${failures.length}):`);
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log(`Governance check passed (${projectMode ? "project" : "template"} mode).`);
+console.log(`Governance check passed (${validationMode} mode).`);
