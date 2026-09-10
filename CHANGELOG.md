@@ -1,4 +1,10 @@
 # Changelog — All Shanti UNICEF Pitch
+## 2026-09-10
+
+### Changed
+
+- Synced the shared AI-product governance baseline to policy v3.1 from template commit `5df996a`, preserving project-specific instructions and declared profile exceptions.
+
 
 ## 2026-09-01 — Piloto de redução do GitHub Actions
 
