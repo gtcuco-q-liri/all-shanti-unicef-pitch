@@ -1,4 +1,14 @@
 # Changelog — All Shanti UNICEF Pitch
+
+## 2026-09-23 — `ci.yml` actualizado para o template v5
+
+Propagação depois de a organização `q-liri` esgotar os 2 000 minutos de Actions a 20/09. A causa não era daquele repo: o template já tinha, desde 09/09, o gate que impede um push a `main` de repetir a suite inteira — e a auditoria do `/sync-repos` verificava *features presentes* e não *versão*, por isso não via repos atrasados. Daí o `ci-template-version` no cabeçalho.
+
+O que a v5 traz: o job `detect` passa a dizer também **o que mudou**, não só que stack existe, e os jobs caros só correm quando algo relevante mudou; um `typecheck` que não existia (os bundlers transpilam sem verificar tipos); e o passo de testes na forma honesta — corre quando o script existe, avisa quando não existe, em vez de a ausência passar por sucesso.
+
+O `gitleaks` continua sem `needs` e sem filtro: corre em todos os eventos e todos os caminhos.
+
+**E o gate revelou três vulnerabilidades `high` que ninguém via.** O `ci.yml` anterior não tinha auditoria nenhuma; o do template bloqueia. `nanoid` (dois avisos de ciclo infinito), `postcss` (leitura arbitrária de ficheiros `.map` por `sourceMappingURL` controlado) e `postcss-selector-parser` (negação de serviço por recursão). As três corrigem-se **dentro dos ranges declarados** — `npm audit fix` sobre o lockfile, sem tocar numa única dependência directa. Verificado a seguir: `npm audit` a zero e o `npm run build` a passar.
 ## 2026-09-10
 
 ### Changed
