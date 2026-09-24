@@ -118,9 +118,16 @@ Para qualquer biblioteca, framework, SDK, API ou CLI listada no **Tech Stack** a
 
 > Não usar Context7 para: lógica de negócio, refactoring, code review, conceitos gerais de programação.
 
-## INDEX.md — mandatory governance file
+## INDEX.md — stable map
 
-If this repo contains an `INDEX.md` (common in academic/study repos), always read it before answering questions about the content it maps. The INDEX.md provides cross-references between topics, sources, and materials that are not obvious from the directory structure alone.
+**Every repo governed by this template has an `INDEX.md` at the root: a stable map of where things are** (ODR-011). It is not a changelog, not a status board, and not a list of initiatives.
+
+### How agents use it
+
+1. **Read `INDEX.md` first** when entering a repo, before exploring with `find`/`grep` — it is the cheapest map.
+2. **Update it only when the structure changes**: a folder added, moved or removed. CI requires it only then.
+3. **Never write history, dates or status into it.** What changed → `CHANGELOG.md`. What is pending or in progress → the task source declared in `docs/5_ROADMAP_AND_TASKS.md`. Decisions → `docs/decisions/`.
+4. An INDEX full of dated entries is a migration to do, not a template to follow: move each entry to its real home (pending → task source, history → CHANGELOG, rule → docs) and delete it from the INDEX only after the destination is confirmed.
 
 ## Related Projects
 
