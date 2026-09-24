@@ -1,5 +1,11 @@
 # Changelog — All Shanti UNICEF Pitch
 
+## [2026-09-24] — Governance policy v3.2 sync
+
+- `INDEX.md` passa a ser um mapa estável de pastas, sem história nem estado (ODR-011): a secção do INDEX no `CLAUDE.md` e a linha do `AGENTS.md` deixam de o descrever como mapa de iniciativas com data a actualizar.
+- `scripts/scaffold.mjs` alinhado com o template 3.2. O `ci.yml` passa à v7: o gate de governance exige o `CHANGELOG.md` em PRs de artefactos e o `INDEX.md` só quando uma pasta de artefactos aparece, desaparece ou muda de sítio.
+- O conteúdo do `INDEX.md` deste repo não foi alterado.
+
 ## 2026-09-23 — `ci.yml` actualizado para o template v5
 
 Propagação depois de a organização `q-liri` esgotar os 2 000 minutos de Actions a 20/09. A causa não era daquele repo: o template já tinha, desde 09/09, o gate que impede um push a `main` de repetir a suite inteira — e a auditoria do `/sync-repos` verificava *features presentes* e não *versão*, por isso não via repos atrasados. Daí o `ci-template-version` no cabeçalho.
